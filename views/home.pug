@@ -4,10 +4,10 @@ html
    body
     
     h1 Search for a movie
-    form(action="")
-      label(for="movie") write your movie-name here:
-      input#(type="text", name="movie")
-      input(type="submit", value="Go",) 
+    form(action ='/film', method='GET')
+      label(for="title") Serach for a movie:
+      input(type="text" name="title")
+      input(type="submit")
 
     
     
