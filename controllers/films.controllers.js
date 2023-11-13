@@ -5,7 +5,9 @@ const getFilm = async (req, res) => {
     try {
         const title = req.params.title;
         let movie = await fetchFilms.getFilm(title); //{}
-        res.status(200).json(movie); // Respuesta de la API para 1 producto
+        console.log(movie);
+        // res.status(200).json(movie); // Respuesta de la API para 1 producto
+        res.render('film', {movie});
     }
     catch (error) {
         console.log(`ERROR: ${error.stack}`);
@@ -13,6 +15,13 @@ const getFilm = async (req, res) => {
     }
 }
 
+// POST 
+const postFilm = (req, res) => {
+    const title = req.body.title;
+    res.redirect(`/film/${title}`) 
+}
+
 module.exports = {
-    getFilm
+    getFilm,
+    postFilm
 }

@@ -4,10 +4,10 @@ html
    body
     
     h1 Search for a movie
-    form(action ='/film', method='GET')
-      label(for="title") Serach for a movie:
+    form(action ='/film', method='POST')
+      label(for="title") Search for a movie:
       input(type="text" name="title")
-      input(type="submit")
+      input(type="submit" id="submitBtn")
 
     
     

@@ -3,7 +3,6 @@ const getFilm = async (title) => {
     let movie = await response.json();
     
     return movie
-
 };
 
 module.exports = {

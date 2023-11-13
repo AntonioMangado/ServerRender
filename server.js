@@ -2,8 +2,10 @@ const express = require('express')
   const app = express()
   const port = 3000
 
-  const filmsRoutes = require("./routes/films_routes")
+  const filmsRoutes = require("./routes/films.routes")
+  const homeRoutes = require("./routes/home.routes")
   app.use(express.json()); // Habilito recepción de JSON en servidor
+  app.use(express.urlencoded({ extended: true })); // Body parser para HTML POST
 
   // Pug
   app.set('view engine', 'pug');
@@ -11,17 +13,13 @@ const express = require('express')
 
   // Access to public folder
   app.use(express.static('public'));
-  app.use('/film',filmsRoutes);
 
-  app.get('/', function(req, res){
-    res.render('home');
-  });
-  app.get('/film', function(req, res){
-    res.render('film');
-  });
+  // Routes
+  app.use('/',filmsRoutes);
+  app.use("/", homeRoutes);
 
   app.get("*",(req,res)=>{
-    res.status(404).send("Gatito triste - 404 not found");
+    res.status(404).send("Gatito triste - 404aaaa not found");
 })
 
 app.listen(port, () => {
